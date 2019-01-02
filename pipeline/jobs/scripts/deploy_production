@@ -1,0 +1,11 @@
+#!/usr/bin/env groovy
+
+def label = "deploy_production"
+
+node(label) {
+  stage('Deploy to Production') {
+    sh '''
+      cap production deploy server='192.168.1.146' user=root password=jenkins
+    ''
+  }
+}

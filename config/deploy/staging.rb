@@ -18,7 +18,8 @@ role :db,  %w{root@192.168.100.155}
 # ask(:password, "VsIs@987", echo: false)
 # server '192.168.100.155', user: 'root', password: fetch(:password), roles: %w{web app db}#, my_property: :my_value
 
-server '192.168.100.155', user: 'root', password: 'centos', roles: %w{web app db}#, my_property: :my_value
+# server '192.168.100.155', user: 'root', password: 'centos', roles: %w{web app db}#, my_property: :my_value
+server "#{ENV['server']}", user: "#{ENV['user']}", password: "#{ENV['password']}", roles: %w{web app db}#, my_property: :my_value
 
 set :rvm_ruby_version, "ruby-2.3.8@rails_4_2_1"
 set :rvm_type, :system
