@@ -15,8 +15,10 @@ role :db,  %w{root@192.168.100.155}
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-ask(:password, "VsIs@987", echo: false)
-server '192.168.100.155', user: 'root', password: fetch(:password), roles: %w{web app db}#, my_property: :my_value
+# ask(:password, "VsIs@987", echo: false)
+# server '192.168.100.155', user: 'root', password: fetch(:password), roles: %w{web app db}#, my_property: :my_value
+
+server '192.168.100.155', user: 'root', password: 'centos', roles: %w{web app db}#, my_property: :my_value
 
 set :rvm_ruby_version, "ruby-2.3.8@rails_4_2_1"
 set :rvm_type, :system
