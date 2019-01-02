@@ -13,7 +13,7 @@ pipelineJob('deploy_production') {
       scm {
         git {
           remote {
-            url('git@github.com:umesh-acquia/sfxtest.git')
+            url('https://github.com/umeshblader3/inocrm-deploy.git')
           }
           branch('master')
           extensions {
