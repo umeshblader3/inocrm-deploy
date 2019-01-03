@@ -6,6 +6,7 @@ node {
   stage('Deploy to Production') {
     sh '''
       /bin/bash -l
+      source /usr/local/rvm/scripts/rvm
       rvm use 2.3.8@rails_4_2_1
       cap production deploy server=192.168.1.146 user=root password=jenkins
     '''
