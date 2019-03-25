@@ -1,14 +1,17 @@
-#!/usr/bin/env groovy
+def label = "mypod-${UUID.randomUUID().toString()}"
 
-def label = "deploy_production"
+pipeline {
+  agent any
+  stages {
+    stage('Sample check') {
+      steps {
+        sh '/bin/bash -e'
+        sh '/usr/local/rvm/scripts/rvm use 2.3.8@rails_4_2_1'
+        sh 'rvm current'
+        sh "cd ../../../"
+        sh 'cap install'
+      }
 
-node {
-  stage('Deploy to Production') {
-    sh '''
-      /bin/bash -l
-      set -e
-      rvm use 2.3.8@rails_4_2_1
-      cap production deploy server=192.168.1.146 user=root password=jenkins
-    '''
+    }
   }
 }
